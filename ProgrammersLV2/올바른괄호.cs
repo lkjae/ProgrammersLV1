@@ -38,3 +38,9 @@ public class Solution {
         return answer;
     }
 }
+
+
+채점 결과
+정확성: 69.5
+효율성: 30.5
+합계: 100.0 / 100.0
