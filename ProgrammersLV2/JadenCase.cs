@@ -9,35 +9,19 @@ using System.Text;
 public class Solution {
     public string solution(string s) {
         string answer = "";
-        string str2 = "";
-        s.ToLower();
-        string[] words  = s.Split(' ');
-        var sb = new StringBuilder();
+        s = s.ToLower();
+        char[] chars = s.ToCharArray();
         
-        for(int i = 0; i < words.Length; i++)
+        for(int i = 0; i < chars.Length; i++)
         {
-            
-            string str = words[i];
-            
-            char[] chars = str.ToCharArray();
-            
-            if(chars[0] > '0' && chars[0] <='9')
-            {
-                str2 = new string(chars);
-            }
-            else
-            {
-                chars[0] = char.ToUpper(chars[0]);
-                str2 = new string(chars);
-                
-            }
-            sb.Append(str2 + ' ');
-            answer = sb.ToString();
+            chars[0] = Char.ToUpper(chars[0]);
+            if(chars[i] == ' ' && i+1 < chars.Length)
+                chars[i+1] = Char.ToUpper(chars[i+1]);
         }
         
+        answer = new string(chars);
         
         return answer;
     }
 }
-// 런타임 에러
-// 최적화 or 문법적인 요소 체크, 알고리즘 체크
+
