@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public class Solution {
+     int removeCount = 0;
+         int removeNum = 0;
+         public int[] solution(string s)
+        {
+            int[] answer = new int[] { };
+            Func(s);
+            answer = new int[] { removeCount, removeNum };
+            return answer;
+        }
+
+         void Func(string s)
+        {
+            if (s == "1")
+            {
+                return;
+            }
+
+            List<char> list = s.ToList();
+
+            removeNum += list.RemoveAll(x => x == '0');
+
+            removeCount++;
+
+            int n = list.Count;
+            string t = Convert.ToString(n, 2);
+            Func(t);
+        }
+}
